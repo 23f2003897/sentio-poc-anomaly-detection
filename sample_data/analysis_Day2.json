@@ -1,0 +1,225 @@
+{
+  "date": "2026-01-02",
+  "persons": [
+    {
+      "person_id": "S1",
+      "name": "AARAV",
+      "image_path": "images/AARAV.png",
+      "wellbeing_score": 65,
+      "social_engagement": 64,
+      "physical_energy": 43,
+      "movement_energy": 43,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S2",
+      "name": "Anamika",
+      "image_path": "images/Anamika.png",
+      "wellbeing_score": 65,
+      "social_engagement": 63,
+      "physical_energy": 42,
+      "movement_energy": 34,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S3",
+      "name": "Harshita",
+      "image_path": "images/Harshita.png",
+      "wellbeing_score": 65,
+      "social_engagement": 65,
+      "physical_energy": 36,
+      "movement_energy": 33,
+      "gaze_direction": "forward",
+      "eye_contact": false
+    },
+    {
+      "person_id": "S4",
+      "name": "Jahanvi",
+      "image_path": "images/Jahanvi.png",
+      "wellbeing_score": 65,
+      "social_engagement": 64,
+      "physical_energy": 48,
+      "movement_energy": 32,
+      "gaze_direction": "side",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S5",
+      "name": "Manav",
+      "image_path": "images/Manav.png",
+      "wellbeing_score": 65,
+      "social_engagement": 61,
+      "physical_energy": 49,
+      "movement_energy": 38,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S6",
+      "name": "Mohini",
+      "image_path": "images/Mohini.png",
+      "wellbeing_score": 65,
+      "social_engagement": 60,
+      "physical_energy": 38,
+      "movement_energy": 38,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S7",
+      "name": "Ranjhana",
+      "image_path": "images/Ranjhana.png",
+      "wellbeing_score": 65,
+      "social_engagement": 65,
+      "physical_energy": 44,
+      "movement_energy": 43,
+      "gaze_direction": "forward",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S8",
+      "name": "Rohini",
+      "image_path": "images/Rohini.png",
+      "wellbeing_score": 65,
+      "social_engagement": 65,
+      "physical_energy": 43,
+      "movement_energy": 35,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S9",
+      "name": "Sparshita",
+      "image_path": "images/Sparshita.png",
+      "wellbeing_score": 60,
+      "social_engagement": 60,
+      "physical_energy": 44,
+      "movement_energy": 36,
+      "gaze_direction": "forward",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S10",
+      "name": "Sushmita",
+      "image_path": "images/Sushmita.png",
+      "wellbeing_score": 65,
+      "social_engagement": 64,
+      "physical_energy": 35,
+      "movement_energy": 40,
+      "gaze_direction": "side",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S11",
+      "name": "Student11",
+      "image_path": "images/Student11.png",
+      "wellbeing_score": 65,
+      "social_engagement": 65,
+      "physical_energy": 46,
+      "movement_energy": 39,
+      "gaze_direction": "forward",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S12",
+      "name": "Student12",
+      "image_path": "images/Student12.png",
+      "wellbeing_score": 65,
+      "social_engagement": 64,
+      "physical_energy": 37,
+      "movement_energy": 32,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S13",
+      "name": "Student13",
+      "image_path": "images/Student13.png",
+      "wellbeing_score": 65,
+      "social_engagement": 65,
+      "physical_energy": 39,
+      "movement_energy": 34,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S14",
+      "name": "Student14",
+      "image_path": "images/Student14.png",
+      "wellbeing_score": 65,
+      "social_engagement": 61,
+      "physical_energy": 40,
+      "movement_energy": 38,
+      "gaze_direction": "down",
+      "eye_contact": false
+    },
+    {
+      "person_id": "S15",
+      "name": "Student15",
+      "image_path": "images/Student15.png",
+      "wellbeing_score": 65,
+      "social_engagement": 62,
+      "physical_energy": 41,
+      "movement_energy": 36,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S16",
+      "name": "Student16",
+      "image_path": "images/Student16.png",
+      "wellbeing_score": 65,
+      "social_engagement": 62,
+      "physical_energy": 46,
+      "movement_energy": 44,
+      "gaze_direction": "down",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S17",
+      "name": "Student17",
+      "image_path": "images/Student17.png",
+      "wellbeing_score": 65,
+      "social_engagement": 65,
+      "physical_energy": 42,
+      "movement_energy": 37,
+      "gaze_direction": "forward",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S18",
+      "name": "Student18",
+      "image_path": "images/Student18.png",
+      "wellbeing_score": 65,
+      "social_engagement": 65,
+      "physical_energy": 42,
+      "movement_energy": 37,
+      "gaze_direction": "forward",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S19",
+      "name": "Student19",
+      "image_path": "images/Student19.png",
+      "wellbeing_score": 65,
+      "social_engagement": 60,
+      "physical_energy": 36,
+      "movement_energy": 37,
+      "gaze_direction": "forward",
+      "eye_contact": true
+    },
+    {
+      "person_id": "S20",
+      "name": "Student20",
+      "image_path": "images/Student20.png",
+      "wellbeing_score": 65,
+      "social_engagement": 63,
+      "physical_energy": 37,
+      "movement_energy": 37,
+      "gaze_direction": "side",
+      "eye_contact": false
+    }
+  ]
+}
