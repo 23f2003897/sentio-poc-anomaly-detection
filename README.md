@@ -18,14 +18,30 @@ This project adds an **intelligent alert layer** on top of existing analytics.
 
 ## 🧩 Solution Overview
 
-The system:
-1. Loads daily student data (JSON files)
-2. Builds **personal baselines**
-3. Detects anomalies using rule-based logic
-4. The system is offline-ready and uses no external CDNs for the HTML report.
-5. Generates:
-   - 📄 `alert_feed.json` (machine-readable)
-   - 🌐 `alert_digest.html` (counsellor dashboard)
+## System Workflow Breakdown
+
+1. **Multi-day data loading**  
+   - Iterates through sequential `analysis_DayX.json` files to build longitudinal student history  
+
+2. **Baseline computation**  
+   - Uses first 3 days to calculate:
+     - Mean (μ)  
+     - Standard deviation (σ)  
+   - Applied to wellbeing, social engagement, and physical traits  
+
+3. **Intelligent anomaly detection**  
+   - **Intra-personal**: Detects shifts against personal baseline (e.g., SUDDEN_DROP, HYPERACTIVITY_SPIKE)  
+   - **Inter-personal (bonus)**: Uses `2σ` rule to flag PEER_OUTLIER vs cohort average  
+   - **Contextual logic**: Combines behavioral + physical signals (e.g., low engagement + downward gaze → SOCIAL_WITHDRAWAL)  
+
+4. **Privacy & portability**  
+   - `alert_digest.html` is fully self-contained  
+   - Embeds CSS, SVG, and images as Base64  
+   - Works offline, no external CDNs  
+
+5. **Dual-output generation**  
+   - `alert_feed.json`: Structured, schema-compliant for system integration , machine readable 
+   - `alert_digest.html`: Executive dashboard with color-coded alerts and sparklines  
 
 ---
 
@@ -67,7 +83,7 @@ pip install numpy
 ```
 ### Requirements: Python 3.9+
 ---
-## How to Run
+## ▶️ Run the Project
 
 ```bash
 python solution.py
@@ -104,7 +120,6 @@ python solution.py
 - If baseline variability is high:
   - `std > 15` → increase detection threshold by **50%**
 
-👉 Prevents false positives
 ---
 ## 📄 Output Formats
 
@@ -131,7 +146,7 @@ Interactive dashboard with:
 - Highlighted high-risk student  
 - Absence tracking
 ---
-## Dashboard Features
+## 📊 Dashboard Features
 
 - KPI metrics (Total, Flagged, Avg Wellbeing)
 - Highlight: Highest risk student
@@ -160,16 +175,15 @@ Interactive dashboard with:
 
 - Alert prioritization  
   - Alerts categorized as:
-    - urgent  
-    - monitor  
-    - informational  
+    - **Urgent**: Triggers a red left-border and status dot  
+    - **Monitor**: Triggers an amber left-border and status dot    
 
 - Offline-first dashboard  
   - No external dependencies  
   - Works without internet
 ---
 
-## Project Structure
+##📁 Project Structure
 ```
 .
 ├── solution.py
@@ -186,8 +200,10 @@ Interactive dashboard with:
 
 This system enables early detection of student distress, helping institutions take timely and proactive action.
 
-From passive analytics → intelligent intervention
+### From passive analytics → intelligent intervention
 ---
 ## Author
 
 **Khusbu Pandey**  
+**23f2003897@ds.study.iitm.ac.in**
+---
