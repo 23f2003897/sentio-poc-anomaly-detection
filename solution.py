@@ -47,6 +47,17 @@ THRESHOLDS = {
     "high_std_baseline":           15,   # if std above this, use relaxed threshold
 }
 
+'''
+→ Sudden drops in wellbeing vs personal baseline
+→ Sustained low scores for 3+ consecutive days
+→ Social withdrawal (low engagement + downward gaze together)
+→ Hyperactivity spikes in combined energy
+→ Regression after a recovery streak
+→ Gaze avoidance over multiple days
+→ Absence flags for welfare checks
+Bonus: Peer outlier detection vs same-day school stats
+Each alert includes severity, category, description, and recommended action.
+'''
 
 # ---------------------------------------------------------------------------
 # DATA LOADING
@@ -62,7 +73,7 @@ def load_daily_data(folder: Path) -> dict:
             with open(fp, "r") as f:
                 data = json.load(f)
         except Exception as e:
-            print(f"⚠️ Skipping {fp} due to error:", e)
+            print(f"Skipping {fp} due to error:", e)
             continue
 
         date_str = data.get("date") or fp.stem
@@ -140,6 +151,18 @@ def compute_baseline(history: list) -> dict:
 # ---------------------------------------------------------------------------
 # ANOMALY DETECTORS  — each returns an alert dict or None
 # ---------------------------------------------------------------------------
+
+'''
+→ Sudden drops in wellbeing vs personal baseline
+→ Sustained low scores for 3+ consecutive days
+→ Social withdrawal (low engagement + downward gaze together)
+→ Hyperactivity spikes in combined energy
+→ Regression after a recovery streak
+→ Gaze avoidance over multiple days
+→ Absence flags for welfare checks
+Bonus: Peer outlier detection vs same-day school stats
+Each alert includes severity, category, description, and recommended action.
+'''
 
 def detect_sudden_drop(today: dict, baseline: dict) -> dict | None:
     baseline_mean = baseline["wellbeing_mean"]
@@ -430,46 +453,6 @@ def analyse_person(person_id: str, sorted_days: dict, info: dict) -> list:
     return alerts
 
 
-# def analyse_person(person_id, sorted_days, info):
-#     alerts = []
-#     history = []
-
-#     for date_str, data in sorted_days.items():
-#         history.append(data)
-
-#         # 👇 skip until enough data
-#         if len(history) < 2:
-#             continue
-
-#         baseline = compute_baseline(history)
-
-#         # ✅ DEBUG HERE (correct place)
-#         if person_id == "S1":
-#             print("\n--- BASELINE DEBUG ---")
-#             print("Person:", person_id)
-#             print("Date:", date_str)
-#             print("History length:", len(history))
-#             print("History:", history)
-#             print("Baseline:", baseline)
-#             print("----------------------\n")
-#     if person_id == "S1":
-#         print("TODAY:", data["wellbeing"])
-#         print("BASELINE:", baseline["wellbeing_mean"])
-#         print("DELTA:", baseline["wellbeing_mean"] - data["wellbeing"])
-
-#             # (detectors will come later)
-#     alert = detect_sudden_drop(data, baseline)
-
-#     if alert:
-#         alert.update({
-#             "person_id": person_id,
-#             "person_name": info.get("name", person_id),
-#             "date": date_str,
-#             "profile_image_b64": info.get("profile_image_b64", "")
-#         })
-#         alerts.append(alert)
-
-#     return alerts
 
 # ---------------------------------------------------------------------------
 # HTML REPORT
@@ -640,6 +623,7 @@ def generate_alert_digest(alerts: list, absence_flags: list,
             "<div class='student-meta'>"
             f"<strong>{esc(alert.get('person_name', 'Unknown'))}</strong>"
             f"<span>{esc(alert.get('date', ''))}</span>"
+            f"<span class='sev-pill sev-pill-{esc(severity)}'>{esc(severity)}</span>"
             "</div>"
             "</div>"
             "<div class='table-anomaly'>"
@@ -716,7 +700,7 @@ def generate_alert_digest(alerts: list, absence_flags: list,
     * {{ box-sizing: border-box; }}
     body {{
       margin: 0;
-      font-family: Arial, "Segoe UI", sans-serif;
+      font-family: Inter , "Segoe UI", sans-serif;
       background:
         radial-gradient(circle at top left, rgba(15, 118, 110, 0.10), transparent 30%),
         radial-gradient(circle at top right, rgba(148, 163, 184, 0.16), transparent 28%),
@@ -886,6 +870,31 @@ def generate_alert_digest(alerts: list, absence_flags: list,
       font-size: 11px;
       font-weight: 500;
       color: #94A3B8;
+    }}
+    .sev-pill {{
+      display: inline-block;
+      margin-top: 5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }}
+    .sev-pill-urgent {{
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+    }}
+    .sev-pill-monitor {{
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+    }}
+    .sev-pill-informational {{
+      background: #F1F5F9;
+      color: #475569;
+      border: 1px solid #CBD5E1;
     }}
     .table-anomaly {{
       display: flex;
@@ -1199,3 +1208,8 @@ if __name__ == "__main__":
     print(f"  Report -> {REPORT_OUT}")
     print(f"  JSON   -> {FEED_OUT}")
     print("=" * 50)
+
+
+# direct the user to open the report in their web browser after generation  
+import webbrowser
+webbrowser.open(str(REPORT_OUT.resolve()))
